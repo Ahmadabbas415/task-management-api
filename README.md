@@ -8,7 +8,7 @@ This project was entirely designed, developed, and tested by me as part of my ba
 
 ## Tech Stack & Dependencies
 
-* Backend: Java 17+, Spring Boot 3.x
+* Backend: Java 26, Spring Boot 
 * Data Access: Spring Data JPA
 * Database: H2 In-Memory Database (Fast & Zero-Configuration)
 * Testing: JUnit 5, Mockito
