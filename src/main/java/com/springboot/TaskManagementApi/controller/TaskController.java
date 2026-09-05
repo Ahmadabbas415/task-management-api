@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {
@@ -29,6 +31,12 @@ public class TaskController {
     public ResponseEntity<String> deleteTask(@PathVariable Long id){
         taskService.deleteTask(id);
         return ResponseEntity.ok("تم حذف المهمة");
+    }
+
+    @GetMapping
+    public ResponseEntity <List<Task>> getAllTasks(){
+        List<Task> tasks = taskService.getAllTasks();
+        return ResponseEntity.ok(tasks);
     }
 
 

@@ -5,6 +5,7 @@ import com.springboot.TaskManagementApi.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,10 @@ public class TaskService {
         existingTask.setCompleted(updatTask.isCompleted());
         return taskRepository.save(existingTask);
     }
+
+    public List<Task> getAllTasks() {
+        return taskRepository.findAll();
+    }
+
 
 }

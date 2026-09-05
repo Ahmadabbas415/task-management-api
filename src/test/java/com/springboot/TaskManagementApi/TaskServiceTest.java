@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
@@ -96,5 +97,24 @@ public class TaskServiceTest {
             taskService.updateTask(idNotExists,anyData);
         });
     }
-}
+
+    @Test
+    void should_Return_All_Tasks_Successfully() {
+        Task task1 = new Task();
+        task1.setTitle("المهمة الأولى");
+
+        Task task2 = new Task();
+        task2.setTitle("المهمة الثانية");
+
+        List<Task> mockTasksList = List.of(task1, task2);
+        Mockito.when(taskRepository.findAll()).thenReturn(mockTasksList);
+
+        List<Task> result = taskService.getAllTasks();
+
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(2, result.size()); // نتأكد أن عدد المهام الراجعة هو 2 كما جهزناها
+        Assertions.assertEquals("المهمة الأولى", result.get(0).getTitle());
+    }
+
+    }
 
