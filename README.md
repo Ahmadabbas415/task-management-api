@@ -27,6 +27,7 @@ The project follows a standard layered architecture to ensure separation of conc
 
 ## API Endpoints
 
+* GET /api/tasks : Retrieve all tasks from the database (Returns a JSON array of tasks)
 * POST /api/tasks : Create a new task (Payload JSON: {"title": "Task Name", "completed": false})
 * PUT /api/tasks/{id} : Update an existing task (Payload JSON: {"title": "Updated Name", "completed": true})
 * DELETE /api/tasks/{id} : Delete a task by ID
